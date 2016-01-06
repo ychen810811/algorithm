@@ -10,8 +10,6 @@ def Fermat(n):
 
 
 def main():
-    # Insertion-sort
-    # a = list(range(2 ** 31))
     a = []
     i = 0
     while i < 2 ** 10:
