@@ -1,3 +1,6 @@
+# -*- coding:utf-8 -*-
+
+
 def insertion_sort(a):
     for j in range(1, len(a)):
         key = a[j]
