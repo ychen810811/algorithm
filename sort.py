@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+import math
 
 
 # INSERTION SORT algorithm implementation
@@ -36,3 +37,12 @@ def merge(A, p, q, r):
                 break
             else:
                 raise e
+
+
+# MERGE SORT algorithm implementation
+def merge_sort(A, p, r):
+    if p < r:
+        q = math.floor((r + p) / 2)
+        merge_sort(A, p, q)
+        merge_sort(A, q + 1, r)
+        merge(A, p, q, r)

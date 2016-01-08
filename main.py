@@ -24,19 +24,11 @@ def insertion_sort_test():
 
 
 def merge_sort_test():
-    A1 = []
-    A2 = []
-    for i in range(20):
-        A1.append(random.randrange(1, 2 ** 5))
-    for i in range(10):
-        A2.append(random.randrange(1, 2 ** 5))
-    sort.insertion_sort(A1)
-    sort.insertion_sort(A2)
-    print(A1)
-    print(A2)
-    A = A1 + A2
+    A = []
+    for i in range(2 ** 10):
+        A.append(random.randrange(1, 2 ** 10))
     print(A)
-    sort.merge(A, 0, 19, 29)
+    sort.merge_sort(A, 0, len(A) - 1)
     print(A)
 
 
