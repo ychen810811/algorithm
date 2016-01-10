@@ -50,10 +50,7 @@ def merge_sort(A, p, r):
 
 # BUBBLE SORT algorithm implementation
 def bubble_sort(A):
-    loop_flag = True
-    while loop_flag:
-        loop_flag = False
-        for i in range(len(A) - 1):
-            if A[i] > A[i + 1]:
-                A[i], A[i + 1] = A[i + 1], A[i]
-                loop_flag = True
+    for i in range(len(A) - 1):
+        for j in range(len(A) - 1, i, -1):
+            if A[j] < A[j - 1]:
+                A[j], A[j - 1] = A[j - 1], A[j]

@@ -33,7 +33,7 @@ def merge_sort_test():
 
 
 def bubble_sort_test():
-    A = [random.randrange(1, 2 ** 10) for i in range(2 ** 10)]
+    A = [random.randrange(1, 2 ** 10) for i in range(24)]
     print(A)
     sort.bubble_sort(A)
     print(A)
