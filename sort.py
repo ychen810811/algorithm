@@ -46,3 +46,14 @@ def merge_sort(A, p, r):
         merge_sort(A, p, q)
         merge_sort(A, q + 1, r)
         merge(A, p, q, r)
+
+
+# BUBBLE SORT algorithm implementation
+def bubble_sort(A):
+    loop_flag = True
+    while loop_flag:
+        loop_flag = False
+        for i in range(len(A) - 1):
+            if A[i] > A[i + 1]:
+                A[i], A[i + 1] = A[i + 1], A[i]
+                loop_flag = True

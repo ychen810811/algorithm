@@ -32,9 +32,17 @@ def merge_sort_test():
     print(A)
 
 
+def bubble_sort_test():
+    A = [random.randrange(1, 2 ** 10) for i in range(2 ** 10)]
+    print(A)
+    sort.bubble_sort(A)
+    print(A)
+
+
 def main():
     # insertion_sort_test()
-    merge_sort_test()
+    # merge_sort_test()
+    bubble_sort_test()
 
 
 if __name__ == '__main__':
