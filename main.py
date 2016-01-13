@@ -12,24 +12,13 @@ def Fermat(n):
 
 
 def insertion_sort_test():
-    a = []
-    i = 0
-    while i < 2 ** 10:
-        a.append(random.randrange(1, 2 ** 10))
-        i += 1
-    print(a)
-    random.shuffle(a)
-    sort.insertion_sort(a)
-    print(a)
+    A = [random.randrange(0, 2 ** 10) for i in range(2 ** 20)]
+    sort.insertion_sort(A)
 
 
 def merge_sort_test():
-    A = []
-    for i in range(2 ** 10):
-        A.append(random.randrange(1, 2 ** 10))
-    print(A)
+    A = [random.randrange(0, 2 ** 10) for i in range(2 ** 20)]
     sort.merge_sort(A, 0, len(A) - 1)
-    print(A)
 
 
 def bubble_sort_test():
@@ -40,9 +29,9 @@ def bubble_sort_test():
 
 
 def main():
-    # insertion_sort_test()
+    insertion_sort_test()
     # merge_sort_test()
-    bubble_sort_test()
+    # bubble_sort_test()
 
 
 if __name__ == '__main__':
