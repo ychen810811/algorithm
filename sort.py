@@ -2,7 +2,7 @@
 import math
 
 
-# INSERTION SORT algorithm implementation
+# 2.1: INSERTION SORT algorithm implementation
 def insertion_sort(a):
     for j in range(1, len(a)):
         key = a[j]
@@ -13,7 +13,7 @@ def insertion_sort(a):
         a[i + 1] = key
 
 
-# Merge function for MERGE SORT algorithm implementation
+# 2.3: Merge function for MERGE SORT algorithm implementation
 def merge(A, p, q, r):
     L = A[p:q + 1]
     R = A[q + 1:r + 1]
@@ -39,7 +39,7 @@ def merge(A, p, q, r):
                 raise e
 
 
-# MERGE SORT algorithm implementation
+# 2.3: MERGE SORT algorithm implementation
 def merge_sort(A, p, r):
     if p < r:
         q = math.floor((r + p) / 2)
@@ -48,7 +48,7 @@ def merge_sort(A, p, r):
         merge(A, p, q, r)
 
 
-# BUBBLE SORT algorithm implementation
+# Problem_2-2: BUBBLE SORT algorithm implementation
 def bubble_sort(A):
     for i in range(len(A) - 1):
         for j in range(len(A) - 1, i, -1):
