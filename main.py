@@ -33,12 +33,17 @@ def max_subarray_test():
     A = [0, 13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
     print('Left: %s, Right: %s, sum: %s' % max_subarray.max_subarray(A, 0, 16))
 
+def max_subarray_time_linear_test():
+    A = [0, 13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
+    print('Left: %s, Right: %s, sum: %s' % max_subarray.max_subarray_time_linear(A, 0, 16))
+
 
 def main():
     # insertion_sort_test()
     # merge_sort_test()
     # bubble_sort_test()
     max_subarray_test()
+    max_subarray_time_linear_test()
 
 
 if __name__ == '__main__':

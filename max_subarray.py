@@ -51,3 +51,20 @@ def max_subarray(A, low, high):
     candidate_list = [candidate_left, candidate_right, candidate_cross]
     candidate_list.sort(key=_tupple_element_2, reverse=True)
     return candidate_list[0]
+
+
+# 4.1-5: MAX SUBARRAY algorithm in linear time, but its space complexity is O(n) rather than O(1)
+def max_subarray_time_linear(A, low, high):
+    max_subarray_at_index = [(low, low, A[low])]
+    for i in range(low + 1, high + 1):
+        if max_subarray_at_index[i - 1][2] < 0:
+            max_subarray_at_index.append((i, i, A[i]))
+        else:
+            max_subarray_at_index.append((max_subarray_at_index[i - 1][0], i, max_subarray_at_index[i - 1][2] + A[i]))
+
+    max_subarray = max_subarray_at_index[0]
+    for i in range(low + 1, high + 1):
+        if max_subarray_at_index[i][2] > max_subarray[2]:
+            max_subarray = max_subarray_at_index[i]
+
+    return max_subarray
