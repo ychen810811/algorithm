@@ -3,35 +3,22 @@
 
 # 4.1: Max subarray crossing mid-point function for MAX SUBARRAY algorithm
 def max_cross_subarray(A, low, mid, high):
-    left_sum = None
+    left_sum = float('-inf')
     tmp = 0
     for i in range(mid, low - 1, -1):
         tmp += A[i]
-        try:
-            if tmp > left_sum:
-                left_sum = tmp
-                left_index_max = i
-        except TypeError:
-            if left_sum is None:
-                left_sum = tmp
-                left_index_max = i
-            else:
-                raise
+        if tmp > left_sum:
+            left_sum = tmp
+            left_index_max = i
 
-    right_sum = None
+    right_sum = float('-inf')
     tmp = 0
     for j in range(mid + 1, high + 1):
         tmp += A[j]
-        try:
-            if tmp > right_sum:
-                right_sum = tmp
-                right_index_max = j
-        except TypeError:
-            if right_sum is None:
-                right_sum = tmp
-                right_index_max = j
-            else:
-                raise
+        if tmp > right_sum:
+            right_sum = tmp
+            right_index_max = j
+
     return (left_index_max, right_index_max, left_sum + right_sum)
 
 
