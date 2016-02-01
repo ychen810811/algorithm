@@ -12,3 +12,8 @@ def square_matrix_multiply(A, B):
             for k in range(n):
                 C[i][j] += A[i][k] * B[k][j]
     return C
+
+
+def square_matrix_multiply_strassen(A, B):
+    if len(A) == 1:
+        return [[A[0][0] * B[0][0]]]
