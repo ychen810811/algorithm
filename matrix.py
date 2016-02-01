@@ -14,6 +14,20 @@ def square_matrix_multiply(A, B):
     return C
 
 
+# 4.2: SQUARE MATRIX MULTIPLICATION - Strassen algorithm
 def square_matrix_multiply_strassen(A, B):
-    if len(A) == 1:
+    "4.2: Strassen algorithm of SQUARE MATRIX MULTIPLICATION"
+    n = len(A)
+    if n == 1:
         return [[A[0][0] * B[0][0]]]
+
+    C = [[None] * n] * n
+    A_1_1 = [x[:n // 2] for x in A[:n // 2]]
+    A_1_2 = [x[n // 2:] for x in A[:n // 2]]
+    A_2_1 = [x[:n // 2] for x in A[n // 2:]]
+    A_2_2 = [x[n // 2:] for x in A[n // 2:]]
+    B_1_1 = [x[:n // 2] for x in B[:n // 2]]
+    B_1_2 = [x[n // 2:] for x in B[:n // 2]]
+    B_2_1 = [x[:n // 2] for x in B[n // 2:]]
+    B_2_2 = [x[n // 2:] for x in B[n // 2:]]
+    C_1_1 =
