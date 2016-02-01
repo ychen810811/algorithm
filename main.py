@@ -47,13 +47,21 @@ def test_matrix_multiply():
     print(C)
 
 
+def test_matrix_multiply_strassen():
+    A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    B = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    C = matrix.square_matrix_multiply_strassen(A, B)
+    print(C)
+
+
 def main():
     # insertion_sort_test()
     # merge_sort_test()
     # bubble_sort_test()
     # max_subarray_test()
     # max_subarray_time_linear_test()
-    test_matrix_multiply()
+    # test_matrix_multiply()
+    test_matrix_multiply_strassen()
 
 
 if __name__ == '__main__':
