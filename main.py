@@ -3,6 +3,7 @@
 import sort
 import max_subarray
 import random
+import matrix
 
 
 def Fermat(n):
@@ -39,12 +40,20 @@ def max_subarray_time_linear_test():
     print('Left: %s, Right: %s, sum: %s' % max_subarray.max_subarray_time_linear(A, 0, 16))
 
 
+def test_matrix_multiply():
+    A = [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+    B = [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+    C = matrix.square_matrix_multiply(A, B)
+    print(C)
+
+
 def main():
     # insertion_sort_test()
     # merge_sort_test()
     # bubble_sort_test()
-    max_subarray_test()
-    max_subarray_time_linear_test()
+    # max_subarray_test()
+    # max_subarray_time_linear_test()
+    test_matrix_multiply()
 
 
 if __name__ == '__main__':
