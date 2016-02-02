@@ -41,8 +41,8 @@ def max_subarray_time_linear_test():
 
 
 def test_matrix_multiply():
-    A = [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
-    B = [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+    A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    B = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
     C = matrix.square_matrix_multiply(A, B)
     print(C)
 
@@ -60,7 +60,7 @@ def main():
     # bubble_sort_test()
     # max_subarray_test()
     # max_subarray_time_linear_test()
-    # test_matrix_multiply()
+    test_matrix_multiply()
     test_matrix_multiply_strassen()
 
 
