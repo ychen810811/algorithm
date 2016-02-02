@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 
-# 4.2: Implemented traditional algorithm of SQUARE MATRIX MULTIPLICATION
+# 4.2: Implemented simple algorithm of SQUARE MATRIX MULTIPLICATION
 def square_matrix_multiply(A, B):
-    "4.2: Traditional algorithm of SQUARE MATRIX MULTIPLICATION"
+    "4.2: Simple algorithm of SQUARE MATRIX MULTIPLICATION"
     n = len(A)
     C = [[None] * n] * n
     for i in range(n):
@@ -16,6 +16,7 @@ def square_matrix_multiply(A, B):
 
 # Internal: matrice addition
 def _add(A, B):
+    "Internal: Addition operation for matrice"
     n = len(A)
     C = [[None] * n] * n
     for i in range(n):
