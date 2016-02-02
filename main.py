@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import pprint
 import sort
 import max_subarray
 import random
@@ -51,7 +52,7 @@ def test_matrix_multiply_strassen():
     A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
     B = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
     C = matrix.square_matrix_multiply_strassen(A, B)
-    print(C)
+    pprint.pprint(C)
 
 
 def main():
