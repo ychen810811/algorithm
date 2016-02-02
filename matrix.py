@@ -51,3 +51,54 @@ def square_matrix_multiply_strassen(A, B):
         C[i + n // 2][:n // 2] = C_2_1[i]
         C[i + n // 2][n // 2:] = C_2_2[i]
     return C
+
+
+def _add_in_place(C, A, index_range):
+    for i in index_range[0]:
+        for j in index_range[1]:
+            C[i][j] += A[i][j]
+    return C
+
+
+def multiply_in_place(C, A, B, C_index_range, A_index_range, B_index_range, size):
+    if size == 1:
+        C[C_index_range[0][0]][C_index_range[1][0]] += A[A_index_range[0][0]][A_index_range[1][0]] * B[B_index_range[0][0]][B_index_range[1][0]]
+        return C
+
+    # C11 = A11 * B11 + A12 * B21
+    C_sub_range = [C_index_range[0][:size // 2], C_index_range[1][:size // 2]]
+    A_sub_range = [A_index_range[0][:size // 2], A_index_range[1][:size // 2]]
+    B_sub_range = [B_index_range[0][:size // 2], B_index_range[1][:size // 2]]
+    multiply_in_place(C, A, B, C_sub_range, A_sub_range, B_sub_range, size // 2)
+    A_sub_range = [A_index_range[0][:size // 2], A_index_range[1][size // 2:]]
+    B_sub_range = [B_index_range[0][size // 2:], B_index_range[1][:size // 2]]
+    multiply_in_place(C, A, B, C_sub_range, A_sub_range, B_sub_range, size // 2)
+
+    # C12 = A11 * B12 + A12 * B22
+    C_sub_range = [C_index_range[0][:size // 2], C_index_range[1][size // 2:]]
+    A_sub_range = [A_index_range[0][:size // 2], A_index_range[1][:size // 2]]
+    B_sub_range = [B_index_range[0][:size // 2], B_index_range[1][size // 2:]]
+    multiply_in_place(C, A, B, C_sub_range, A_sub_range, B_sub_range, size // 2)
+    A_sub_range = [A_index_range[0][:size // 2], A_index_range[1][size // 2:]]
+    B_sub_range = [B_index_range[0][size // 2:], B_index_range[1][size // 2:]]
+    multiply_in_place(C, A, B, C_sub_range, A_sub_range, B_sub_range, size // 2)
+
+    # C21 = A21 * B11 + A22 * B21
+    C_sub_range = [C_index_range[0][size // 2:], C_index_range[1][:size // 2]]
+    A_sub_range = [A_index_range[0][size // 2:], A_index_range[1][:size // 2]]
+    B_sub_range = [B_index_range[0][:size // 2], B_index_range[1][:size // 2]]
+    multiply_in_place(C, A, B, C_sub_range, A_sub_range, B_sub_range, size // 2)
+    A_sub_range = [A_index_range[0][size // 2:], A_index_range[1][size // 2:]]
+    B_sub_range = [B_index_range[0][size // 2:], B_index_range[1][:size // 2]]
+    multiply_in_place(C, A, B, C_sub_range, A_sub_range, B_sub_range, size // 2)
+
+    # C22 = A21 * B12 + A22 * B22
+    C_sub_range = [C_index_range[0][size // 2:], C_index_range[1][size // 2:]]
+    A_sub_range = [A_index_range[0][size // 2:], A_index_range[1][:size // 2]]
+    B_sub_range = [B_index_range[0][:size // 2], B_index_range[1][size // 2:]]
+    multiply_in_place(C, A, B, C_sub_range, A_sub_range, B_sub_range, size // 2)
+    A_sub_range = [A_index_range[0][size // 2:], A_index_range[1][size // 2:]]
+    B_sub_range = [B_index_range[0][size // 2:], B_index_range[1][size // 2:]]
+    multiply_in_place(C, A, B, C_sub_range, A_sub_range, B_sub_range, size // 2)
+
+    return C

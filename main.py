@@ -55,14 +55,23 @@ def test_matrix_multiply_strassen():
     pprint.pprint(C)
 
 
+def test_matrix_multiply_in_place():
+    A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    B = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    C = [[0] * 4] * 4
+    matrix.multiply_in_place(C, A, B, [[0, 1, 2, 3], [0, 1, 2, 3]], [[0, 1, 2, 3], [0, 1, 2, 3]], [[0, 1, 2, 3], [0, 1, 2, 3]], 4)
+    print(C)
+
+
 def main():
     # insertion_sort_test()
     # merge_sort_test()
     # bubble_sort_test()
     # max_subarray_test()
     # max_subarray_time_linear_test()
-    test_matrix_multiply()
-    test_matrix_multiply_strassen()
+    # test_matrix_multiply()
+    # test_matrix_multiply_strassen()
+    test_matrix_multiply_in_place()
 
 
 if __name__ == '__main__':
