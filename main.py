@@ -56,10 +56,12 @@ def test_matrix_multiply_strassen():
 
 
 def test_matrix_multiply_in_place():
+    C = [[0 for j in range(4)] for i in range(4)]
     A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
     B = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
-    C = [[0] * 4] * 4
-    matrix.multiply_in_place(C, A, B, [[0, 1, 2, 3], [0, 1, 2, 3]], [[0, 1, 2, 3], [0, 1, 2, 3]], [[0, 1, 2, 3], [0, 1, 2, 3]], 4)
+    size = len(C)
+    idx_range = [list(range(size)), list(range(size))]
+    matrix.multiply_in_place(C, A, B, idx_range, idx_range, idx_range, size)
     print(C)
 
 
@@ -69,8 +71,8 @@ def main():
     # bubble_sort_test()
     # max_subarray_test()
     # max_subarray_time_linear_test()
-    # test_matrix_multiply()
-    # test_matrix_multiply_strassen()
+    test_matrix_multiply()
+    test_matrix_multiply_strassen()
     test_matrix_multiply_in_place()
 
 
