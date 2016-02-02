@@ -5,7 +5,7 @@
 def square_matrix_multiply(A, B):
     "4.2: Simple algorithm of SQUARE MATRIX MULTIPLICATION"
     n = len(A)
-    C = [[None] * n] * n
+    C = [[None for j in range(n)] for i in range(n)]
     for i in range(n):
         for j in range(n):
             C[i][j] = 0
@@ -18,7 +18,7 @@ def square_matrix_multiply(A, B):
 def _add(A, B):
     "Internal: Addition operation for matrice"
     n = len(A)
-    C = [[None] * n] * n
+    C = [[None for j in range(n)] for i in range(n)]
     for i in range(n):
         for j in range(n):
             C[i][j] = A[i][j] + B[i][j]
@@ -32,7 +32,7 @@ def square_matrix_multiply_strassen(A, B):
     if n == 1:
         return [[A[0][0] * B[0][0]]]
 
-    C = [[None] * n] * n
+    C = [[None for j in range(n)] for i in range(n)]
     A_1_1 = [x[:n // 2] for x in A[:n // 2]]
     A_1_2 = [x[n // 2:] for x in A[:n // 2]]
     A_2_1 = [x[:n // 2] for x in A[n // 2:]]
