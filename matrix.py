@@ -53,14 +53,10 @@ def square_matrix_multiply_strassen(A, B):
     return C
 
 
-def _add_in_place(C, A, index_range):
-    for i in index_range[0]:
-        for j in index_range[1]:
-            C[i][j] += A[i][j]
-    return C
-
-
+# 4.2: Strassen algorithm - this version implements in-place calculation to
+# avoid copying elements to new sub-matrices (resulting to O(n^2) cost)
 def multiply_in_place(C, A, B, C_index_range, A_index_range, B_index_range, size):
+    "4.2: Strassen algorithm of SQUARE MATRIX MULTIPLICATION - inline calculation"
     if size == 1:
         C[C_index_range[0][0]][C_index_range[1][0]] += A[A_index_range[0][0]][A_index_range[1][0]] * B[B_index_range[0][0]][B_index_range[1][0]]
         return C

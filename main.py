@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import pprint
 import sort
 import max_subarray
 import random
@@ -42,23 +41,23 @@ def max_subarray_time_linear_test():
 
 
 def test_matrix_multiply():
-    A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
-    B = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    A = [[1, 3, 2, 1], [4, 6, 1, 3], [5, 8, 9, 4], [1, 3, 3, 6]]
+    B = [[1, 5, 6, 9], [2, 4, 1, 6], [3, 3, 7, 5], [4, 1, 8, 4]]
     C = matrix.square_matrix_multiply(A, B)
     print(C)
 
 
 def test_matrix_multiply_strassen():
-    A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
-    B = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    A = [[1, 3, 2, 1], [4, 6, 1, 3], [5, 8, 9, 4], [1, 3, 3, 6]]
+    B = [[1, 5, 6, 9], [2, 4, 1, 6], [3, 3, 7, 5], [4, 1, 8, 4]]
     C = matrix.square_matrix_multiply_strassen(A, B)
-    pprint.pprint(C)
+    print(C)
 
 
 def test_matrix_multiply_in_place():
     C = [[0 for j in range(4)] for i in range(4)]
-    A = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
-    B = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    A = [[1, 3, 2, 1], [4, 6, 1, 3], [5, 8, 9, 4], [1, 3, 3, 6]]
+    B = [[1, 5, 6, 9], [2, 4, 1, 6], [3, 3, 7, 5], [4, 1, 8, 4]]
     size = len(C)
     idx_range = [list(range(size)), list(range(size))]
     matrix.multiply_in_place(C, A, B, idx_range, idx_range, idx_range, size)
