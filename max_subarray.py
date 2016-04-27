@@ -37,7 +37,7 @@ def max_subarray(A, low, high):
     candidate_cross = max_cross_subarray(A, low, (low + high) // 2, high)
     candidate_list = [candidate_left, candidate_right, candidate_cross]
     candidate_list.sort(key=_tupple_element_2, reverse=True)
-    return candidate_list[0]
+    return max(candidate_list, key=_tupple_element_2)
 
 
 # 4.1-5: MAX SUBARRAY algorithm in linear time, but its space complexity is O(n) rather than O(1)
