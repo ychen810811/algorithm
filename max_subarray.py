@@ -36,7 +36,6 @@ def max_subarray(A, low, high):
     candidate_right = max_subarray(A, (low + high) // 2 + 1, high)
     candidate_cross = max_cross_subarray(A, low, (low + high) // 2, high)
     candidate_list = [candidate_left, candidate_right, candidate_cross]
-    candidate_list.sort(key=_tupple_element_2, reverse=True)
     return max(candidate_list, key=_tupple_element_2)
 
 
@@ -49,9 +48,5 @@ def max_subarray_time_linear(A, low, high):
         else:
             max_subarray_at_index.append((max_subarray_at_index[i - 1][0], i, max_subarray_at_index[i - 1][2] + A[i]))
 
-    max_subarray = max_subarray_at_index[0]
-    for i in range(low + 1, high + 1):
-        if max_subarray_at_index[i][2] > max_subarray[2]:
-            max_subarray = max_subarray_at_index[i]
 
-    return max_subarray
+    return max(max_subarray_at_index, key=_tupple_element_2)
